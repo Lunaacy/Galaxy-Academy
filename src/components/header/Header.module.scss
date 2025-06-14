@@ -1,0 +1,77 @@
+.custom {
+  background: url("/images/header-bg.svg") center/cover no-repeat;
+  height: 160px;
+  width: 100%;
+  position: fixed;  
+  top: 0;            
+  left: 0;
+  z-index: 1000;   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.navContent {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+
+  li {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.authButtons {
+  display: flex;
+  gap: 16px;
+
+  .loginBtn {
+    background: transparent;
+    color: white;
+    border: 1px solid #bca9f5;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #bca9f5;
+      color: #fff;
+    }
+  }
+
+  .signupBtn {
+    background-color: #bca9f5;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      opacity: 0.87;
+    }
+  }
+}
