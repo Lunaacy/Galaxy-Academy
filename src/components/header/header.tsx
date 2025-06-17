@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Header.module.scss";
 import Image from "next/image";
+import Link from 'next/link'
 // import TestImage from "@/public/images/header-bg.svg"
 
 const Header = () => {
@@ -17,7 +18,9 @@ const Header = () => {
                 </ul>
                 <div className={styles.authButtons}>
                     <button className={styles.loginBtn}>Log In</button>
+                    <Link href="/signup">
                     <button className={styles.signupBtn}>Sign Up</button>
+                    </Link>
                 </div>
             </nav>
         </header>
