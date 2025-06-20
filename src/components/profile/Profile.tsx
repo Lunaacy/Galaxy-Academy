@@ -1,8 +1,12 @@
 import { Cart } from "@/src/uikit/cart/Cart";
 import { Tablet } from "./tablet/Tablet";
+import { Container } from "../shared/container/container";
 import EarthIcon from "@/public/images/svg/earth.svg";
 import SunhIcon from "@/public/images/svg/sun.svg";
+import AstronautIcon from "@/public/images/svg/astronaut.svg";
+import moonImage from "@/public/images/profile/moon.webp";
 import styles from "./Profile.module.scss";
+import Image from "next/image";
 
 const items = [
   {
@@ -32,16 +36,6 @@ const items = [
 ];
 
 export const Profile = () => {
-  let content: React.ReactNode;
-
-  // switch (activeTab) {
-  //   case "home":
-  //     break;
-
-  //   default:
-  //     break;
-  // }
-
   const Content = () => {
     return (
       <ul className={styles.tabletList}>
@@ -56,18 +50,17 @@ export const Profile = () => {
 
   return (
     <div className={styles.mainContainer}>
-      Profile
-      <div className="">
-        <Tablet>
-          <ul className={styles.tabletList}>
-            {items.map((item) => (
-              <li key={item.id} className={styles.tabletItem}>
-                <Cart image={item.icon} title={item.title} level={item.level} />
-              </li>
-            ))}
-          </ul>
-        </Tablet>
-      </div>
+      <Container>
+        <Tablet />
+      </Container>
+      <Image
+        src={moonImage}
+        width={500}
+        height={500}
+        alt="moon"
+        className={styles.moon}
+      />
+      <AstronautIcon className={styles.astronaut} />
     </div>
   );
 };

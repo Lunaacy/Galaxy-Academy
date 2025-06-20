@@ -8,7 +8,7 @@ import SunhIcon from "@/public/images/svg/sun.svg";
 import HumanIcon from "@/public/images/svg/human.svg";
 import HomeIcon from "@/public/images/svg/home.svg";
 import tabletBg from "@/public/images/profile/tablet_view.webp";
-import React, { useEffect, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import { Root, List, Trigger, Content } from "@radix-ui/react-tabs";
 
 const items = [
@@ -36,9 +36,21 @@ const items = [
     title: "sun",
     level: 4,
   },
+  {
+    id: 4,
+    icon: <EarthIcon />,
+    title: "earth",
+    level: 5,
+  },
+  {
+    id: 5,
+    icon: <SunhIcon />,
+    title: "sun",
+    level: 6,
+  },
 ];
 
-export const Tablet = ({ children }: { children: React.ReactNode }) => {
+export const Tablet = () => {
   const [activeTab, setActiveTab] = useState("home");
 
   useEffect(() => {
@@ -48,7 +60,6 @@ export const Tablet = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={styles.tablet}>
       <Root value={activeTab} onValueChange={(value) => setActiveTab(value)}>
-        {/* {children} */}
         <Content tabIndex={undefined} value="home">
           <div className={styles.contenWrapper}>
             <ul className={styles.tabletList}>
@@ -78,21 +89,6 @@ export const Tablet = ({ children }: { children: React.ReactNode }) => {
               <HumanIcon className={styles.btnIcon} />
             </Trigger>
           </List>
-
-          {/* <button
-            type="button"
-            className={styles.tabletBtn}
-            onClick={() => console.log("home")}
-          >
-            <HomeIcon className={styles.btnIcon} />
-          </button>
-          <button
-            type="button"
-            className={styles.tabletBtn}
-            onClick={() => console.log("profile")}
-          >
-            <HumanIcon className={styles.btnIcon} />
-          </button> */}
         </div>
         <Image
           src={tabletBg}
