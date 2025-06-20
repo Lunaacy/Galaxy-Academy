@@ -1,0 +1,70 @@
+.tablet {
+  box-sizing: border-box;
+  position: relative;
+  padding: 35px 125px 35px 35px;
+  width: 1000px;
+  height: 596px;
+  // background-image: url("../../../../public/images/profile/tablet_view.webp");
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: auto;
+
+  .bgImage {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: 0;
+  }
+
+  .tabletBtnWrapper {
+    position: absolute;
+    top: 65px;
+    right: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    .tabletBtn {
+      border: none;
+      background: none;
+      cursor: pointer;
+      .btnIcon {
+        width: 72px;
+        height: auto;
+      }
+    }
+  }
+}
+
+.contenWrapper {
+  position: relative;
+  padding: 25px 65px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .tabletList {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 160px);
+    grid-template-rows: repeat(2, 228px);
+    column-gap: 20px;
+    row-gap: 20px;
+
+    .tabletItem {
+      width: 100%;
+      height: auto;
+      z-index: 999;
+    }
+  }
+
+  .profileTitle {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+}
