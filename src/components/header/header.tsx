@@ -8,7 +8,9 @@ const Header = () => {
       <nav className={styles.navContent}>
         <ul className={styles.navLinks}>
           <li>About us</li>
-          <li>Profile</li>
+          <li>
+            <Link href='/profile'>Profile</Link>
+          </li>
           <li>Diary</li>
         </ul>
         <div className={styles.authButtons}>
