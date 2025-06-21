@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@tailwind utilities;
+
+:root {
+    --primapy-color: #ffffff
+}
+
+body {
+    background-color: black;
+    color: var(--primapy-color);
+}

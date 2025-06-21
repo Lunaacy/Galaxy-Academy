@@ -1,16 +1,18 @@
 .custom {
-  background: url("/images/header-bg.svg") center/cover no-repeat;
+  background: url('/images/header-bg.svg');
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 160px;
   width: 100%;
-  position: fixed;  
-  top: 0;            
+  position: static;
+  top: 0;
   left: 0;
-  z-index: 1000;   
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 .navContent {
   width: 90%;
@@ -30,7 +32,7 @@
 
   li {
     color: white;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     letter-spacing: 2px;
     cursor: pointer;
@@ -54,7 +56,7 @@
     cursor: pointer;
     z-index: 1;
     border: none;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     &::before {
       content: '';
@@ -68,9 +70,14 @@
       border: 2px solid #bca9f5;
       box-sizing: border-box;
       clip-path: polygon(
-        8px 0%, calc(100% - 8px) 0%, 100% 8px,
-        100% calc(100% - 8px), calc(100% - 8px) 100%,
-        8px 100%, 0% calc(100% - 8px), 0% 8px
+        8px 0%,
+        calc(100% - 8px) 0%,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        0% calc(100% - 8px),
+        0% 8px
       );
       transition: all 0.3s ease;
     }
@@ -92,12 +99,17 @@
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     transition: background-color 0.3s ease;
     clip-path: polygon(
-      8px 0%, calc(100% - 8px) 0%, 100% 8px,
-      100% calc(100% - 8px), calc(100% - 8px) 100%,
-      8px 100%, 0% calc(100% - 8px), 0% 8px
+      8px 0%,
+      calc(100% - 8px) 0%,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0% calc(100% - 8px),
+      0% 8px
     );
 
     &:hover {

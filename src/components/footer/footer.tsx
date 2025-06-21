@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./Footer.module.scss";
-import { FaTwitter, FaFacebookF, FaMedium, FaYoutube } from "react-icons/fa";
-import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
+import React from 'react'
+import styles from './Footer.module.scss'
+import { FaTwitter, FaFacebookF, FaMedium, FaYoutube } from 'react-icons/fa'
+import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi'
 
 const Footer = () => {
   return (
@@ -35,11 +35,16 @@ const Footer = () => {
         <div className={styles.column}>
           <div className={styles.contact}>
             <p>
-              <FiMapPin /> 1772 Nevskaya Street NW,<br />
+              <FiMapPin /> 1772 Nevskaya Street NW,
+              <br />
               Suite 21389, Atlanta, GA 902344
             </p>
-            <p><FiPhone /> +1789 123456</p>
-            <p><FiMail /> hello@containers.kit</p>
+            <p>
+              <FiPhone /> +1789 123456
+            </p>
+            <p>
+              <FiMail /> hello@containers.kit
+            </p>
           </div>
         </div>
 
@@ -47,13 +52,13 @@ const Footer = () => {
         <div className={styles.column}>
           <p>Receive special offers and get our latest updates.</p>
           <form className={styles.subscribeForm}>
-            <input type="email" placeholder="Enter e-mail" />
-            <button type="submit">JOIN</button>
+            <input type='email' placeholder='Enter e-mail' />
+            <button type='submit'>JOIN</button>
           </form>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
