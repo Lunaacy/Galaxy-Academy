@@ -5,11 +5,10 @@ import Image from 'next/image'
 import styles from './Tablet.module.scss'
 import EarthIcon from '@/public/images/svg/earth.svg'
 import SunhIcon from '@/public/images/svg/sun.svg'
-import HumanIcon from '@/public/images/svg/human.svg'
-import HomeIcon from '@/public/images/svg/home.svg'
 import tabletBg from '@/public/images/profile/tablet_view.webp'
 import React, { useEffect, useState } from 'react'
 import { Root, List, Trigger, Content } from '@radix-ui/react-tabs'
+import { tabletButtons } from './tabletButtons/tabletButtons'
 
 const items = [
   {
@@ -72,7 +71,7 @@ export const Tablet = () => {
   return (
     <div className={styles.tablet}>
       <Root value={activeTab} onValueChange={(value) => setActiveTab(value)}>
-        <Content tabIndex={undefined} value='home'>
+        <Content tabIndex={undefined} value='mission'>
           <div className={styles.contenWrapper}>
             <ul className={styles.tabletList}>
               {items.map((item) => (
@@ -87,19 +86,22 @@ export const Tablet = () => {
             </ul>
           </div>
         </Content>
-        <Content tabIndex={undefined} value='human'>
+        <Content tabIndex={undefined} value='profile'>
           <div className={styles.contenWrapper}>
             <p className={styles.profileTitle}>Profile</p>
           </div>
         </Content>
         <div>
           <List className={styles.tabletBtnWrapper}>
-            <Trigger className={styles.tabletBtn} value='home'>
-              <HomeIcon className={styles.btnIcon} />
-            </Trigger>
-            <Trigger className={styles.tabletBtn} value='human'>
-              <HumanIcon className={styles.btnIcon} />
-            </Trigger>
+            {tabletButtons.map((item) => (
+              <Trigger
+                key={item.id}
+                className={styles.tabletBtn}
+                value={item.title.toLowerCase()}
+              >
+                {activeTab === item.title ? <item.activeIcon /> : <item.icon />}
+              </Trigger>
+            ))}
           </List>
         </div>
         <Image
