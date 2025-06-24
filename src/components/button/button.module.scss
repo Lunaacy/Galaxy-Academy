@@ -1,0 +1,37 @@
+.signupBtn {
+  background-color: #00e3ff;
+  color: #000;
+  border: none;
+  padding: 0.5rem 2rem; 
+  height: 42px; 
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease;
+  clip-path: polygon(
+    8px 0%,
+    calc(100% - 8px) 0%,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0% calc(100% - 8px),
+    0% 8px
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: #00bcd4;
+  }
+
+  .icon {
+    margin-left: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+}
