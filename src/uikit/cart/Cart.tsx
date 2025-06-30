@@ -1,24 +1,39 @@
 "use client";
 
+import { ElementType } from "react";
 import styles from "./Cart.module.scss";
+import cn from 'classnames'
 
 interface ICartProps {
-  image: React.ReactNode;
+  image: ElementType;
   title: string;
   level: number;
+  status: boolean;
+  gameLink: string;
+  onClick: (value: boolean) => void;
+  setGameLink: (gameLink: string) => void;
 }
 
-export const Cart = ({ image, title, level }: ICartProps) => {
+export const Cart = ({ image, title, level, status, gameLink, setGameLink, onClick }: ICartProps) => {
+
+  const Icon = image
+
   return (
     <button
       type="button"
       className={styles.btn}
-      onClick={() => console.log(title)}
+      onClick={() => {
+        setGameLink(gameLink);
+        onClick(true)
+      }}
+      disabled={!status}
     >
-      <div className={styles.imeWapper}>{image}</div>
+      <div className={styles.imgWapper}>
+        <Icon className={cn(styles.icon, { [styles.active]: status })} />
+      </div>
       <div className={styles.contentWrapper}>
-        <h3>{title}</h3>
-        <span>level: {level}</span>
+        <h3 className={styles.title}>{title}</h3>
+        <span className={styles.level}>level: {level}</span>
       </div>
     </button>
   );

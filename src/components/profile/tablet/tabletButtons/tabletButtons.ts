@@ -8,12 +8,12 @@ import TestIcon from '@/public/images/profile/svg/test.svg'
 import TestActiveIcon from '@/public/images/profile/svg/test-active.svg'
 import LeaderIcon from '@/public/images/profile/svg/leader.svg'
 import LeaderActiveIcon from '@/public/images/profile/svg/leader-active.svg'
-import React from 'react'
+import { ElementType } from 'react'
 
 interface ITabletButton {
   id: number
-  icon: React.ComponentType
-  activeIcon: React.ComponentType
+  icon: ElementType
+  activeIcon: ElementType
   title: string
 }
 
