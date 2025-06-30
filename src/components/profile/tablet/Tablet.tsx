@@ -1,117 +1,105 @@
-'use client'
+"use client";
 
-import { Cart } from '@/src/uikit/cart/Cart'
-import Image from 'next/image'
-import styles from './Tablet.module.scss'
-import EarthIcon from '@/public/images/svg/earth.svg'
-import SunhIcon from '@/public/images/svg/sun.svg'
-import tabletBg from '@/public/images/profile/tablet_view.webp'
-import React, { useEffect, useState } from 'react'
-import { Root, List, Trigger, Content } from '@radix-ui/react-tabs'
-import { tabletButtons } from './tabletButtons/tabletButtons'
+import { Cart } from "@/src/uikit/cart/Cart";
+import Image from "next/image";
+import styles from "./Tablet.module.scss";
+import tabletBg from "@/public/images/profile/tablet_view.webp";
+import React, { useState } from "react";
+import { Root, List, Trigger, Content } from "@radix-ui/react-tabs";
+import { tabletButtons } from "./tabletButtons/tabletButtons";
+import { Book } from "./book/Book";
+import { missionData } from "../../utils/missionData";
+import CloseBtn from '@/public/images/svg/closeBtn.svg'
 
-const items = [
-  {
-    id: 0,
-    icon: <EarthIcon />,
-    title: 'Mission earth',
-    level: 1,
-    description:
-      'This is a description for mission sun at level 1. It provides additional context and details about the mission.',
-  },
-  {
-    id: 1,
-    icon: <SunhIcon />,
-    title: 'Mission sun',
-    level: 2,
-    description:
-      'This is a description for mission sun at level 2. It provides additional context and details about the mission.',
-  },
-  {
-    id: 2,
-    icon: <EarthIcon />,
-    title: 'Mission earth',
-    level: 3,
-    description:
-      'This is a description for mission sun at level 3. It provides additional context and details about the mission.',
-  },
-  {
-    id: 3,
-    icon: <SunhIcon />,
-    title: 'Mission sun',
-    level: 4,
-    description:
-      'This is a description for mission sun at level 4. It provides additional context and details about the mission.',
-  },
-  {
-    id: 4,
-    icon: <EarthIcon />,
-    title: 'Mission earth',
-    level: 5,
-    description:
-      'This is a description for mission sun at level 5. It provides additional context and details about the mission.',
-  },
-  {
-    id: 5,
-    icon: <SunhIcon />,
-    title: 'Mission sun',
-    level: 6,
-    description:
-      'This is a description for mission sun at level 6. It provides additional context and details about the mission.',
-  },
-]
 
 export const Tablet = () => {
-  const [activeTab, setActiveTab] = useState('home')
-
-  useEffect(() => {
-    console.log('activeTab', activeTab)
-  }, [activeTab])
+  const [activeTab, setActiveTab] = useState("home");
+  const [isGameOpen, setIsGameOpen] = useState(false);
+  const [gameLink, setGameLink] = useState('')
 
   return (
-    <div className={styles.tablet}>
-      <Root value={activeTab} onValueChange={(value) => setActiveTab(value)}>
-        <Content tabIndex={undefined} value='mission'>
-          <div className={styles.contenWrapper}>
-            <ul className={styles.tabletList}>
-              {items.map((item) => (
-                <li key={item.id} className={styles.tabletItem}>
-                  <Cart
-                    image={item.icon}
-                    title={item.title}
-                    level={item.level}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Content>
-        <Content tabIndex={undefined} value='profile'>
-          <div className={styles.contenWrapper}>
-            <p className={styles.profileTitle}>Profile</p>
-          </div>
-        </Content>
-        <div>
-          <List className={styles.tabletBtnWrapper}>
-            {tabletButtons.map((item) => (
-              <Trigger
-                key={item.id}
-                className={styles.tabletBtn}
-                value={item.title.toLowerCase()}
-              >
-                {activeTab === item.title ? <item.activeIcon /> : <item.icon />}
-              </Trigger>
-            ))}
-          </List>
+    <>
+      {isGameOpen ? (
+        <div className={`ml-auto p-[20px] w-[1100px] h-[683px] p-0`}>
+          <button type="button" className="absolute top-[20px] right-[60px]" onClick={() => setIsGameOpen(false)}><CloseBtn className='w-[50px] h-auto' /></button>
+          <iframe
+            src={gameLink}
+            className="w-full h-full border-none"
+            allowFullScreen
+          />
         </div>
-        <Image
-          src={tabletBg}
-          alt=''
-          fill
-          className={styles.bgImage}
-          quality={100}
-        />
-      </Root>
-    </div>
-  )
-}
+      ) :
+        (
+          <div className={styles.tablet}>
+            <Root
+              value={activeTab}
+              onValueChange={(value) => setActiveTab(value)}
+            >
+              <Content tabIndex={undefined} value="mission">
+                <div className={styles.contenWrapper}>
+                  <ul className={styles.tabletList}>
+                    {missionData.map((item) => (
+                      <li key={item.id} className={styles.tabletItem}>
+                        <Cart
+                          gameLink={item.gameLink}
+                          setGameLink={setGameLink}
+                          onClick={setIsGameOpen}
+                          status={item.isAtive}
+                          image={item.icon}
+                          title={item.title}
+                          level={item.level}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Content>
+              <Content tabIndex={undefined} value="profile">
+                <div className={styles.contenWrapper}>
+                  <p className={styles.profileTitle}>Profile</p>
+                </div>
+              </Content>
+              <Content value="diary">
+                <Book />
+              </Content>
+              <Content value="test">
+                Test
+
+              </Content>
+              <Content value="leader">Leader</Content>
+              <div>
+                <List className={styles.tabletBtnWrapper}>
+                  {tabletButtons.map((item) => {
+
+                    const Icon = item.icon;
+                    const ActiveIcon = item.activeIcon
+
+                    return (
+                      <Trigger
+                        key={item.id}
+                        className={styles.tabletBtn}
+                        value={item.title.toLowerCase()}
+                      >
+                        {activeTab === item.title ? (
+                          <ActiveIcon className={styles.icon} />
+                        ) : (
+                          <Icon className={styles.icon} />
+                        )}
+                      </Trigger>
+                    )
+                  })}
+                </List>
+              </div>
+              <Image
+                src={tabletBg}
+                alt=""
+                fill
+                className={styles.bgImage}
+                quality={100}
+              />
+            </Root>
+          </div>
+        )}
+    </>
+  );
+};

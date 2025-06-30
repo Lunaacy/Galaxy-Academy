@@ -2,9 +2,7 @@
   margin-left: auto;
   box-sizing: border-box;
   position: relative;
-  padding: 35px 125px 35px 35px;
-  width: 1000px;
-  height: 596px;
+  overflow: hidden;
 
   .bgImage {
     position: absolute;
@@ -27,7 +25,7 @@
       background: none;
       cursor: pointer;
       .btnIcon {
-        width: 72px;
+        width: 50px;
         height: auto;
       }
     }
@@ -63,5 +61,29 @@
     width: 100%;
     height: 100%;
     text-align: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tablet {
+    padding: 30px 100px 30px 38px;
+    width: 800px;
+    height: 476px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tablet {
+    padding: 32px 115px 32px 42px;
+    width: 900px;
+    height: 536px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .tablet {
+    padding: 35px 125px 35px 45px;
+    width: 1000px;
+    height: 596px;
   }
 }
