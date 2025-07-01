@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './signUp.module.scss';
 import { AiOutlineArrowRight, AiOutlineDownload } from 'react-icons/ai';
 import Button from '@/src/components/button/page';

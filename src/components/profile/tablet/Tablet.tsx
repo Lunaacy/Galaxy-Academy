@@ -10,7 +10,12 @@ import { tabletButtons } from "./tabletButtons/tabletButtons";
 import { Book } from "./book/Book";
 import { missionData } from "../../utils/missionData";
 import CloseBtn from '@/public/images/svg/closeBtn.svg'
+<<<<<<< HEAD
 import { useRouter, useSearchParams } from "next/navigation";
+=======
+import Test from '../test/test';
+import Leaderboard from '../leaderboard/leaderboard';
+>>>>>>> a187b81b (Added leaderboard and test)
 
 
 export const Tablet = () => {
@@ -40,8 +45,13 @@ export const Tablet = () => {
   return (
     <>
       {isGameOpen ? (
+<<<<<<< HEAD
         <div className={`ml-auto p-[20px] w-[1100px] h-[683px] p-0`}>
           <button type="button" className="absolute top-[20px] right-[60px]" onClick={handleCloseGame}><CloseBtn className='w-[50px] h-auto' /></button>
+=======
+        <div className={`ml-auto p-[20px] w-[1100px] h-[683px]`}>
+          <button type="button" className="absolute top-[20px] right-[60px]" onClick={() => setIsGameOpen(false)}><CloseBtn className='w-[50px] h-auto' /></button>
+>>>>>>> a187b81b (Added leaderboard and test)
           <iframe
             src={gameLink}
             className="w-full h-full border-none"
@@ -83,9 +93,15 @@ export const Tablet = () => {
                 <Book />
               </Content>
               <Content value="test">
+<<<<<<< HEAD
                 Test
+=======
+                <Test />
               </Content>
-              <Content value="leader">Leader</Content>
+              <Content value="leader"> 
+                <Leaderboard />
+>>>>>>> a187b81b (Added leaderboard and test)
+              </Content>
               <div>
                 <List className={styles.tabletBtnWrapper}>
                   {tabletButtons.map((item) => {

@@ -27,7 +27,7 @@ const logIn = () => {
             <button type='submit' className="btn w-full bg-[#00E3FF]/50 hover:bg-[#00E3FF]/30 transition-all text-white font-bold py-2 rounded-full">Login</button>
 
             <div className="register-link">
-                <p className='text-center text-sm mt-4'>Don't have an account? <a href="#" className='text-[#00E3FF]/70 hover:underline'>Register</a></p>
+                <p className='text-center text-sm mt-4'>Don&apos;t have an account? <a href="#" className='text-[#00E3FF]/70 hover:underline'>Register</a></p>
             </div>
         </form>
     </div>
