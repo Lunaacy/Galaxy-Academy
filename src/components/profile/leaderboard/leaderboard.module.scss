@@ -1,0 +1,53 @@
+.container {
+  border-radius: 16px;
+  padding: 24px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  margin: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  th {
+    text-transform: uppercase;
+    font-weight: 600;
+    background: #043a63;
+    border-radius: 12px;
+  }
+
+  td {
+    font-size: 16px;
+  }
+}
+
+.studentCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  background: #1e90ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00ffff;
+}
+
+.positive {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.negative {
+  color: #ff4d4f;
+  font-weight: bold;
+}

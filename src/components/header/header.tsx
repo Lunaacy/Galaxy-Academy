@@ -14,7 +14,9 @@ const Header = () => {
           <li>Diary</li>
         </ul>
         <div className={styles.authButtons}>
-          <button className={styles.loginBtn}>Log In</button>
+          <Link href='/login'>
+            <button className={styles.loginBtn}>Log In</button>
+          </Link>
           <Link href='/signup'>
             <button className={styles.signupBtn}>Sign Up</button>
           </Link>
