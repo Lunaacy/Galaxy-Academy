@@ -76,7 +76,7 @@ export const Tablet = () => {
               </Content>
               <Content tabIndex={undefined} value="profile">
                 <div className={styles.contenWrapper}>
-                  <p className={styles.profileTitle}>Profile</p>
+                  <p className={styles.profileTitle}>Skin</p>
                 </div>
               </Content>
               <Content value="diary">
