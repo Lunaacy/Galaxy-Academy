@@ -13,6 +13,7 @@ import CloseBtn from '@/public/images/svg/closeBtn.svg'
 import { useRouter, useSearchParams } from "next/navigation";
 import Test from '../test/test';
 import Leaderboard from '../leaderboard/leaderboard';
+// import Header from '../../header'
 
 
 export const Tablet = () => {

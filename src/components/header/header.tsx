@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Header.module.scss'
 import Link from 'next/link'
+import Button from '../button/page'
 
 const Header = () => {
   return (
@@ -15,10 +16,10 @@ const Header = () => {
         </ul>
         <div className={styles.authButtons}>
           <Link href='/login'>
-            <button className={styles.loginBtn}>Log In</button>
+            <Button text="Log In" className={styles.loginBtn} />
           </Link>
           <Link href='/signup'>
-            <button className={styles.signupBtn}>Sign Up</button>
+            <Button text='Sign Up' className={styles.loginBtn}/>
           </Link>
         </div>
       </nav>

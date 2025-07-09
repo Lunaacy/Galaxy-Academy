@@ -5,12 +5,17 @@ import AstronautSuit from "@/public/images/profile/user-view/suit/suit_test.svg"
 import moonImage from "@/public/images/profile/moon.webp";
 import styles from "./Profile.module.scss";
 import Image from "next/image";
+import Header from '../header/header';
+import { Suspense } from "react";
 
 export const Profile = () => {
   return (
     <div className={styles.mainContainer}>
+      <Header />
       <Container>
-        <Tablet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Tablet />
+        </Suspense>
       </Container>
       <Image
         src={moonImage}
