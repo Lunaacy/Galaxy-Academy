@@ -6,13 +6,16 @@ import MoonImage from "@/public/images/profile/svg/planet_profile.png";
 import styles from "./Profile.module.scss";
 import Image from "next/image";
 import Header from '../header/header';
+import { Suspense } from "react";
 
 export const Profile = () => {
   return (
     <div className={styles.mainContainer}>
       <Header />
       <Container>
+        <Suspense>
           <Tablet />
+        </Suspense>
       </Container>
       <Image
         src={MoonImage}
