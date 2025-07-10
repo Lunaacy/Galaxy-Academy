@@ -1,31 +1,22 @@
 .signupBtn {
-  background-color: #00bcd4;
+  background-color: #A095E3;
   color: #fff;
   border: none;
-  padding: 0.5rem 2rem; 
+  padding: 0.5rem 2.5rem; 
   height: 42px; 
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   transition: background-color 0.3s ease;
-  clip-path: polygon(
-    8px 0%,
-    calc(100% - 8px) 0%,
-    100% 8px,
-    100% calc(100% - 8px),
-    calc(100% - 8px) 100%,
-    8px 100%,
-    0% calc(100% - 8px),
-    0% 8px
-  );
+  border-radius: 8px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    background-color: #00e3ff;
+    background-color: #A095E3;
   }
 
   .icon {
