@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
 import styles from "./Mission.module.scss";
 import { missionData } from "../../utils/missionData";
 import { Card } from "@/src/uikit/card/Card";
 
-const Mission = () => {
-  const [gameLink, setGameLink] = useState('');
-  const [isGameOpen, setIsGameOpen] = useState(false);
+interface IMissionProps {
+  setIsGameOpen: (value: boolean) => void;
+  setGameLink: (link: string) => void;
+}
 
+const Mission = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
   return (
     <div className={styles.contenWrapper}>
       <ul className={styles.tabletList}>
