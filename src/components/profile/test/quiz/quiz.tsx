@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './test.module.scss'; 
+import styles from './quiz.module.scss'; 
 
 const Test = () => {
   return (

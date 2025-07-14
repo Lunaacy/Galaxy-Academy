@@ -1,7 +1,7 @@
 "use client";
 
 import { ElementType } from "react";
-import styles from "./Cart.module.scss";
+import styles from "./Card.module.scss";
 import cn from 'classnames'
 
 interface ICartProps {
@@ -14,7 +14,7 @@ interface ICartProps {
   setGameLink: (gameLink: string) => void;
 }
 
-export const Cart = ({ image, title, level, status, gameLink, setGameLink, onClick }: ICartProps) => {
+export const Card = ({ image, title, level, status, gameLink, setGameLink, onClick }: ICartProps) => {
 
   const Icon = image
 
