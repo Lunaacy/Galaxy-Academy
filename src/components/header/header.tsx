@@ -14,7 +14,7 @@ const Header = () => {
             <Logo className="h-[30px] w-auto" />
           </Link>
           <Link href="https://uzspace.uz/ru" target="_blank">
-            <LogoCosmos className="h-[40px] w-auto" />
+            <LogoCosmos className="h-[55px] w-auto" />
           </Link>
         </div>
         <ul className={styles.navLinks}>
