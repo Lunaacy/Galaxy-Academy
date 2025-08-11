@@ -8,7 +8,7 @@ import Moon from '@/public/images/svg/mssion/moon.svg';
 import Saturt from '@/public/images/svg/mssion/saturn.svg';
 import { ElementType } from 'react';
 
-interface IMissionData {
+export interface IMissionData {
   id: number;
   icon: ElementType;
   title: string;
@@ -23,7 +23,7 @@ export const missionData: IMissionData[] = [
     id: 0,
     icon: Rockety,
     title: 'Mission sun',
-    level: 2,
+    level: 1,
     isAtive: true,
     gameLink: 'https://allelf.github.io/PuzzleWebGL/',
     description:
@@ -33,7 +33,7 @@ export const missionData: IMissionData[] = [
     id: 1,
     icon: EarthIcon,
     title: 'Structure of the Earth',
-    level: 1,
+    level: 2,
     isAtive: true,
     gameLink: 'https://allelf.github.io/MMOArcade/',
     description:
