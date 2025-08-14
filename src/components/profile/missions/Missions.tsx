@@ -19,9 +19,13 @@ const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
   const router = useRouter();
   const mission = serchParams.get('missionId');
 
+  const sortedMissions = [...missionData].sort((a, b) => {
+    return a.id - b.id;
+  });
+
   const handleActiveMision = useCallback(
     (value: number) => {
-      const mission = missionData.find((item) => item.id === value);
+      const mission = sortedMissions.find((item) => item.id === value);
       if (mission) {
         setActiveMission(mission);
         router.push(`/profile?activeTab=mission&missionId=${value}`);
@@ -34,6 +38,8 @@ const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
   useEffect(() => {
     if (mission) {
       handleActiveMision(Number(mission));
+    } else {
+      setActiveMission(null);
     }
   }, [mission, handleActiveMision]);
 
@@ -44,12 +50,11 @@ const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
           <div className={styles.titleWrapper}>
             <h2 className={styles.title}>Missions</h2>
           </div>
-          <ul className={styles.tabletList}>
-            {missionData.map((item) => (
+          <ul className={`${styles.tabletList} custom-scroll`}>
+            {sortedMissions.map((item) => (
               <li key={item.id} className={styles.tabletItem}>
                 <Card
                   gameLink={item.gameLink}
-                  setGameLink={setGameLink}
                   onClick={() => setIsGameOpen(true)}
                   status={item.isAtive}
                   image={item.icon}
@@ -62,11 +67,7 @@ const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
           </ul>
         </>
       ) : activeMission ? (
-        <Mission
-          activeMission={activeMission}
-          setIsGameOpen={setIsGameOpen}
-          setGameLink={setGameLink}
-        />
+        <Mission setIsGameOpen={setIsGameOpen} setGameLink={setGameLink} />
       ) : null}
     </div>
   );

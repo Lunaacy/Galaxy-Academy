@@ -3,6 +3,7 @@
 import { ElementType } from 'react';
 import styles from './Card.module.scss';
 import cn from 'classnames';
+import LockIcon from '@/public/images/profile/mission/svg/lock.svg';
 
 interface ICartProps {
   image: ElementType;
@@ -11,35 +12,24 @@ interface ICartProps {
   status: boolean;
   gameLink: string;
   onClick: (value: boolean) => void;
-  setGameLink: (gameLink: string) => void;
   setActiveMission: (level: number) => void;
 }
 
-export const Card = ({
-  image,
-  title,
-  level,
-  status,
-  // gameLink,
-  // setGameLink,
-  // onClick,
-  setActiveMission,
-}: ICartProps) => {
+export const Card = ({ image, title, level, status, setActiveMission }: ICartProps) => {
   const Icon = image;
 
   return (
     <button
       type="button"
-      className={styles.btn}
+      className={cn(styles.btn, { [styles.activeBtn]: status })}
       onClick={() => {
-        // setGameLink(gameLink);
-        // onClick(true)
         setActiveMission(level);
       }}
       disabled={!status}
     >
-      <div className={styles.imgWapper}>
-        <Icon className={cn(styles.icon, { [styles.active]: status })} />
+      <div className={cn(styles.imgWapper, { [styles.activeImgWrapper]: status })}>
+        <Icon className={cn(styles.icon, styles.active)} />
+        {!status && <LockIcon className="absolute h-auto w-[40%]" />}
       </div>
       <div className={styles.contentWrapper}>
         <h3 className={styles.title}>{title}</h3>

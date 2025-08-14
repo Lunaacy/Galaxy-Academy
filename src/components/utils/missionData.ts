@@ -6,6 +6,8 @@ import Spacesuit from '@/public/images/svg/mssion/spacesuit.svg';
 import Atmosphere from '@/public/images/svg/mssion/atmosphere.svg';
 import Moon from '@/public/images/svg/mssion/moon.svg';
 import Saturt from '@/public/images/svg/mssion/saturn.svg';
+
+import land from '@/public/images/profile/mission/land.webp';
 import { ElementType } from 'react';
 
 export interface IMissionData {
@@ -16,68 +18,118 @@ export interface IMissionData {
   description: string;
   isAtive: boolean;
   gameLink: string;
+  videoLink: string;
+  fileLink?: string;
+  facts: {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+  }[];
 }
 
 export const missionData: IMissionData[] = [
   {
-    id: 0,
+    id: 2,
     icon: Rockety,
-    title: 'Mission sun',
-    level: 1,
+    title: 'Rockety',
+    level: 3,
     isAtive: true,
     gameLink: 'https://allelf.github.io/PuzzleWebGL/',
     description:
       'This is a description for mission sun at level 2. It provides additional context and details about the mission.',
+    videoLink: '',
+    facts: [],
   },
   {
-    id: 1,
+    id: 0,
     icon: EarthIcon,
-    title: 'Structure of the Earth',
-    level: 2,
+    title: 'The Earth',
+    level: 1,
     isAtive: true,
     gameLink: 'https://allelf.github.io/MMOArcade/',
     description:
       'This is a description for mission sun at level 1. It provides additional context and details about the mission.',
-  },
-  {
-    id: 2,
-    icon: SunhIcon,
-    title: 'Mission earth',
-    level: 3,
-    isAtive: false,
-    gameLink: '',
-    description:
-      'This is a description for mission sun at level 3. It provides additional context and details about the mission.',
-  },
-  {
-    id: 3,
-    icon: Star,
-    title: 'Mission sun',
-    level: 4,
-    isAtive: false,
-    gameLink: '',
-    description:
-      'This is a description for mission sun at level 4. It provides additional context and details about the mission.',
+    videoLink: '',
+    facts: [
+      {
+        id: 1,
+        title: 'Fact 1',
+        description:
+          'Земная кора — тонкая оболочка всего от 5 до 70 км, на которой живут люди, растения, животные и т.д.',
+        image: land.src,
+      },
+      {
+        id: 2,
+        title: 'Fact 2',
+        description:
+          ' Мантия — горячий слой густой породы, который движет горы и вызывает извержения вулканов.',
+        image: '',
+      },
+      {
+        id: 3,
+        title: 'Fact 3',
+        description:
+          'Внешнее ядро — жидкий слой железа, который течёт и усиливает магнитное поле Земли, как гигантский генератор.',
+        image: '',
+      },
+      {
+        id: 4,
+        title: 'Fact 4',
+        description:
+          'Ядро — твёрдый металлический шар в центре Земли, горячий (до 6000°C) и создающий магнитное поле, защищающее планету от космических лучей.',
+        image: '',
+      },
+    ],
   },
   {
     id: 4,
-    icon: Spacesuit,
+    icon: SunhIcon,
     title: 'Mission earth',
     level: 5,
     isAtive: false,
     gameLink: '',
     description:
-      'This is a description for mission sun at level 5. It provides additional context and details about the mission.',
+      'This is a description for mission sun at level 3. It provides additional context and details about the mission.',
+    videoLink: '',
+    facts: [],
   },
   {
     id: 5,
-    icon: Atmosphere,
+    icon: Star,
     title: 'Mission sun',
     level: 6,
     isAtive: false,
     gameLink: '',
     description:
+      'This is a description for mission sun at level 4. It provides additional context and details about the mission.',
+    videoLink: '',
+    facts: [],
+  },
+  {
+    id: 3,
+    icon: Spacesuit,
+    title: 'Rockety model',
+    level: 4,
+    isAtive: true,
+    gameLink: '',
+    description:
+      'This is a description for mission sun at level 5. It provides additional context and details about the mission.',
+    videoLink: '',
+    facts: [],
+  },
+  {
+    id: 1,
+    icon: Atmosphere,
+    title: 'Earth model',
+    level: 2,
+    isAtive: true,
+    gameLink: '',
+    description:
       'This is a description for mission sun at level 6. It provides additional context and details about the mission.',
+    videoLink: '',
+    fileLink: '/files/mission/earth_model.pdf',
+    facts: [],
   },
   {
     id: 6,
@@ -88,6 +140,8 @@ export const missionData: IMissionData[] = [
     gameLink: '',
     description:
       'This is a description for mission sun at level 6. It provides additional context and details about the mission.',
+    videoLink: '',
+    facts: [],
   },
   {
     id: 7,
@@ -98,5 +152,7 @@ export const missionData: IMissionData[] = [
     gameLink: '',
     description:
       'This is a description for mission sun at level 6. It provides additional context and details about the mission.',
+    videoLink: '',
+    facts: [],
   },
 ];

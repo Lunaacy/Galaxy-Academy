@@ -35,7 +35,7 @@ export const Tablet = () => {
   const [activeTab, setActiveTab] = useState(activeTabParam || 'mission');
 
   const handleSetActiveParam = (value: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams();
     params.set('activeTab', value);
     router.replace(`/profile?${params.toString()}`, { scroll: false });
     setActiveTab(value);
