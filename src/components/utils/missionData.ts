@@ -11,7 +11,6 @@ import land from '@/public/images/profile/mission/land.webp';
 import { ElementType } from 'react';
 
 export interface IMissionData {
-export interface IMissionData {
   id: number;
   icon: ElementType;
   title: string;
