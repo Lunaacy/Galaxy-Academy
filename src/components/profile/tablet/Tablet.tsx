@@ -39,12 +39,12 @@ export const Tablet = () => {
     params.set('activeTab', value);
     router.replace(`/profile?${params.toString()}`, { scroll: false });
     setActiveTab(value);
-  };
+  }; // ✅ closed function here
 
   return (
     <>
       {isGameOpen ? (
-        <div className={`ml-auto h-[683px] w-[1100px] p-0 p-[20px]`}>
+        <div className="ml-auto h-[683px] w-[1100px] p-[20px]">
           <button
             type="button"
             className="absolute top-[20px] right-[60px]"
@@ -76,6 +76,7 @@ export const Tablet = () => {
             <Content value="leader">
               <Leaderboard />
             </Content>
+
             <div>
               <List className={styles.tabletBtnWrapper}>
                 {tabletButtons.map((item) => {
@@ -98,6 +99,7 @@ export const Tablet = () => {
                 })}
               </List>
             </div>
+
             <Image src={tabletBg} alt="" fill className={styles.bgImage} quality={100} />
           </Root>
         </div>

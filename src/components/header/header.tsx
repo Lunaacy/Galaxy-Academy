@@ -4,6 +4,9 @@ import Link from "next/link";
 import Button from "../button/page";
 import Logo from "@/public/images/svg/logo-en.svg";
 import LogoCosmos from "@/public/images/svg/uzcosmos_logo_white.svg";
+import ExitIcon from "@/public/images/header/exit-icon.svg";
+import Inoman from "@/public/images/header/inoman.svg";
+import USA from "@/public/images/header/USA.svg";
 
 const Header = () => {
   return (
@@ -19,22 +22,18 @@ const Header = () => {
         </div>
         <ul className={styles.navLinks}>
           <li>
-            <Link href="/">Home Page</Link>
-          </li>
-          <li>
-            <Link href="/profile">Profile</Link>
+            <Link href="/">Step to the moon</Link>
           </li>
         </ul>
         <div className={styles.authButtons}>
-          <Link
-            href="/login"
-            className="p-[0.5rem_2.5rem] border-2 rounded-[8px] border-[#A095E3] text-[#A095E3] font-medium"
-          >
-            {" "}
-            Log In{" "}
+          <Link href="/profile">
+            <Inoman />
           </Link>
-          <Link href="/signup">
-            <Button text="Sign Up" className={styles.loginBtn} />
+          <Link href="/">
+            <USA />
+          </Link>
+          <Link href="/">
+            <ExitIcon />
           </Link>
         </div>
       </nav>

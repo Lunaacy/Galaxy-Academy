@@ -1,5 +1,5 @@
 .custom {
-  background: url('/images/header-bg.svg');
+  background: url('/images/header/header-bg.svg');
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,6 +23,7 @@
 }
 
 .navLinks {
+  font-family: 'AlumniSans-Regular', sans-serif;
   list-style: none;
   display: flex;
   gap: 30px;
@@ -31,17 +32,15 @@
 
   li {
     color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 50px;
     letter-spacing: 2px;
     cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
+    text-transform: uppercase;
   }
 }
+
 .authButtons {
   display: flex;
+  align-items: center;
   gap: 30px;
 }

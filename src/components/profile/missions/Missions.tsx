@@ -2,9 +2,12 @@
 
 import styles from './Mission.module.scss';
 import { IMissionData, missionData } from '../../utils/missionData';
+import { IMissionData, missionData } from '../../utils/missionData';
 import { Card } from '@/src/uikit/card/Card';
 import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Mission } from '../mission/Mission';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 interface IMissionProps {
@@ -46,6 +49,7 @@ const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
   return (
     <div className={styles.contenWrapper}>
       {activeMission === null && !mission ? (
+      {activeMission === null && !mission ? (
         <>
           <div className={styles.titleWrapper}>
             <h2 className={styles.title}>Missions</h2>
@@ -60,6 +64,7 @@ const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
                   image={item.icon}
                   title={item.title}
                   level={item.level}
+                  setActiveMission={() => handleActiveMision(item.id)}
                   setActiveMission={() => handleActiveMision(item.id)}
                 />
               </li>
