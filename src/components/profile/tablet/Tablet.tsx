@@ -8,8 +8,8 @@ import { Root, List, Trigger, Content } from '@radix-ui/react-tabs';
 import { tabletButtons } from './tabletButtons/tabletButtons';
 import { Book } from './book/Book';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Test from '../test/quiz/quiz';
-import Leaderboard from '../leaderboard/leaderboard';
+import Tests from '../tests/Tests';
+import Leaderboard from '../leaderboard/Leaderboard';
 import Missions from '../missions/Missions';
 import CloseBtn from '@/public/images/svg/closeBtn.svg';
 import { Skin } from '../../skin/Skin';
@@ -71,7 +71,7 @@ export const Tablet = () => {
               <Book />
             </Content>
             <Content value="test">
-              <Test />
+              <Tests setIsGameOpen={setIsGameOpen} setGameLink={setGameLink}/>
             </Content>
             <Content value="leader">
               <Leaderboard />

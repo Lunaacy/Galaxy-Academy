@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import Link from "next/link";
-import Button from "../button/page";
+import Button from "../button/Button";
+import { useAuth } from "@/src/context/AuthContext";
+import { useRouter } from "next/navigation";
+
 import Logo from "@/public/images/svg/logo-en.svg";
 import LogoCosmos from "@/public/images/svg/uzcosmos_logo_white.svg";
 import ExitIcon from "@/public/images/header/exit-icon.svg";
@@ -9,9 +13,20 @@ import Inoman from "@/public/images/header/inoman.svg";
 import USA from "@/public/images/header/USA.svg";
 
 const Header = () => {
+  const { isLoggedIn, logout } = useAuth();
+  const router = useRouter();
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    router.push("/");
+    setShowConfirm(false);
+  }
+
   return (
     <header className={styles.custom}>
       <nav className={styles.navContent}>
+        {/* Left logos */}
         <div className="flex items-center justify-between gap-10">
           <Link href="/">
             <Logo className="h-[30px] w-auto" />
@@ -20,23 +35,61 @@ const Header = () => {
             <LogoCosmos className="h-[55px] w-auto" />
           </Link>
         </div>
+
+        {/* Middle nav */}
         <ul className={styles.navLinks}>
           <li>
-            <Link href="/">Step to the moon</Link>
+            <Link
+              href={isLoggedIn ? "/profile" : "/"}
+              className="btn"
+            >
+              Step to the moon
+            </Link>
           </li>
         </ul>
+
+        {/* Right side */}
         <div className={styles.authButtons}>
-          <Link href="/profile">
-            <Inoman />
-          </Link>
-          <Link href="/">
-            <USA />
-          </Link>
-          <Link href="/">
-            <ExitIcon />
-          </Link>
+          {!isLoggedIn ? (
+            <>
+              <Link href="/">
+                <USA />
+              </Link>
+              <Link href="/login">
+                <Button text="Log In" />
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/profile">
+                <Inoman />
+              </Link>
+              <Link href="/">
+                <USA />
+              </Link>
+              <button onClick={() => setShowConfirm(true)}>
+                <ExitIcon />
+              </button>
+            </>
+          )}
         </div>
       </nav>
+      {showConfirm && (
+        <div className={styles.backdrop}>
+          <div className={styles.modal}>
+            <h2 className={styles.title}>Confirm Logout</h2>
+            <p className={styles.message}>Are you sure you want to log out?</p>
+            <div className={styles.actions}>
+              <button onClick={handleLogout} className={`${styles.button} ${styles.logout}`}>
+                Yes, Logout
+              </button>
+              <button onClick={() => setShowConfirm(false)} className={`${styles.button} ${styles.cancel}`}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

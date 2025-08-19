@@ -1,6 +1,6 @@
 .btn {
   padding: 17px 8px;
-  border-radius: 42px;
+  border-radius: 50px;
   background: none;
   width: 100%;
   height: 100%;
@@ -8,11 +8,21 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
+<<<<<<< HEAD
 
   border: 2px solid rgba(163, 163, 163, 1);
   background: linear-gradient(rgba(44, 41, 103, 0.1), rgba(255, 255, 255, 0.2));
 
+=======
+  border: 1.7px solid #2EA4D8;
+  background: linear-gradient(rgba(44, 41, 103, 0.1), #2ea5d8ba, rgba(255, 255, 255, 0.2));
+>>>>>>> 11666669 (Changed header, cards and pagge file)
   cursor: pointer;
+  filter: grayscale(70%);
+
+  &.active {
+    filter: grayscale(0);
+  }
 
   .imgWapper {
     padding: 24px;
@@ -22,22 +32,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     border: 2px solid rgba(163, 163, 163, 1);
     border-radius: 30px;
+=======
+    border: 1px solid #2EA4D8;
+    border-radius: 50px;
+>>>>>>> 11666669 (Changed header, cards and pagge file)
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.2),
-      rgba(53, 50, 112, 0.4),
+      #2ea5d85b,
       rgba(255, 255, 255, 0.2)
     );
+    
 
     .icon {
       width: 70%;
       height: auto;
-      filter: grayscale(100%);
-    }
-
-    .active {
       filter: grayscale(0);
     }
   }
@@ -59,13 +71,17 @@
     height: 70%;
     top: 50%;
     left: 50%;
+<<<<<<< HEAD
     border: 2px solid rgba(163, 163, 163, 1);
+=======
+    border: 2px solid #2EA4D8;
+>>>>>>> 11666669 (Changed header, cards and pagge file)
     border-radius: 15px;
     transform: translate(-50%, -50%) rotate(-45deg);
     background: linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0.2) 70%
+      #215f81a2,
+      rgba(255, 255, 255, 0.16) 70%
     );
   }
 

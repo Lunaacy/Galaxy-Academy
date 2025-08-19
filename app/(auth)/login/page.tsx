@@ -1,37 +1,87 @@
-import React from 'react';
-import PersonIcon from '@mui/icons-material/Person';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+"use client";
 
-const logIn = () => {
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/src/context/AuthContext";
+
+import PersonIcon from "@mui/icons-material/Person";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+
+import styles from "./Login.module.scss";
+
+export default function LoginPage() {
+  const { login } = useAuth();
+  const router = useRouter();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // ✅ Hardcoded credentials
+    const validUser = "uztash2267B-Spaceship";
+    const validPass = "ewtq2";
+
+    if (username === validUser && password === validPass) {
+      login(); // from AuthContext
+      router.push("/profile");
+    } else {
+      setError("Invalid username or password ❌");
+    }
+  };
+
   return (
-    <div className="text-white min-h-screen bg-gradient-to-b from-[#07152A] to-[#022533] flex items-center justify-center bg-cover bg-center relative">
-        <div className="absolute inset-0 bg-[url('/images/signup-bg.jpg')] bg-cover opacity-20"></div>
-        <form className='relative z-10 bg-[#07152A]/10 backdrop-blur-md border border-[#00E3FF]/50 text-lightgrey p-8 rounded-2xl shadow-xl w-full max-w-md'>
-            <h1 className='text-3xl font-bold text-center mb-6 '>Login</h1>
-            <div className="input-box flex items-center bg-[#024061]/10 border border-[#00E3FF]/50 px-4 py-2 mb-4 rounded-lg">
-                <input type="text" placeholder="Username" className='bg-transparent outline-none flex-1 placeholder-[#ADBECC]' required/>
-                <PersonIcon className=''></PersonIcon>
-            </div>
-            <div className="input-box input-box flex items-center bg-[#024061]/10 border border-[#00E3FF]/50 px-4 py-2 mb-4 rounded-lg">
-                <input type="password" placeholder="Password" className='bg-transparent outline-none flex-1 placeholder-[#ADBECC]' required/>
-                <VisibilityOffIcon className=''></VisibilityOffIcon>
-                <VisibilityIcon className=''></VisibilityIcon>
-            </div>
+    <div className={styles.loginContainer}>
+      <div className={styles.loginBg}></div>
 
-            <div className="remember-forgot flex justify-between text-sm mb-4">
-                <label className='flex items-center space-x-2'><input type="checkbox" className='accent-[#00E3FF]/30'/> <span>Remember me</span> </label>
-                <a href="#" className='hover:underline'>Forgot password?</a>
-            </div>
+      <form onSubmit={handleSubmit} className={styles.loginForm}>
+        <h1 className={styles.loginTitle}>Login</h1>
 
-            <button type='submit' className="btn w-full bg-[#00E3FF]/50 hover:bg-[#00E3FF]/30 transition-all text-white font-bold py-2 rounded-full">Login</button>
+        {/* Username */}
+        <div className={styles.inputGroup}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <PersonIcon />
+        </div>
 
-            <div className="register-link">
-                <p className='text-center text-sm mt-4'>Don&apos;t have an account? <a href="#" className='text-[#00E3FF]/70 hover:underline'>Register</a></p>
-            </div>
-        </form>
+        {/* Password */}
+        <div className={styles.inputGroup}>
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          {showPassword ? (
+            <VisibilityOffIcon
+              onClick={() => setShowPassword(false)}
+              className={styles.iconClick}
+            />
+          ) : (
+            <VisibilityIcon
+              onClick={() => setShowPassword(true)}
+              className={styles.iconClick}
+            />
+          )}
+        </div>
+
+        {/* Error */}
+        {error && <p className={styles.error}>{error}</p>}
+
+        <button type="submit" className={styles.loginBtn}>
+          Login
+        </button>
+      </form>
     </div>
-  )
+  );
 }
-
-export default logIn

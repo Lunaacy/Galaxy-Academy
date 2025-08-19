@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import styles from './signUp.module.scss';
 import { AiOutlineArrowRight, AiOutlineDownload } from 'react-icons/ai';
-import Button from '@/src/components/button/page';
+import Button from '@/src/components/button/Button';
 
 type Players = { boys: string; girls: string };
 type FormData = {

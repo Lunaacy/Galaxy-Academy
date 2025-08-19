@@ -5,11 +5,12 @@ import styles from './Card.module.scss';
 import cn from 'classnames';
 import LockIcon from '@/public/images/profile/mission/svg/lock.svg';
 
-interface ICartProps {
+interface ICardProps {
   image: ElementType;
   title: string;
-  level: number;
+  id: number | string;               
   status: boolean;
+<<<<<<< HEAD
   gameLink: string;
   onClick: (value: boolean) => void;
   setActiveMission: (level: number) => void;
@@ -25,6 +26,25 @@ export const Card = ({ image, title, level, status, setActiveMission }: ICartPro
       onClick={() => {
         setActiveMission(level);
       }}
+=======
+  subtitle?: string;                 
+  onClick: () => void;              
+}
+
+export const Card = ({
+  image: Icon,
+  title,
+  id,
+  status,
+  subtitle,
+  onClick,
+}: ICardProps) => {
+  return (
+    <button
+      type="button"
+      className={styles.btn}
+      onClick={onClick}
+>>>>>>> 11666669 (Changed header, cards and pagge file)
       disabled={!status}
     >
       <div className={cn(styles.imgWapper, { [styles.activeImgWrapper]: status })}>
@@ -33,7 +53,7 @@ export const Card = ({ image, title, level, status, setActiveMission }: ICartPro
       </div>
       <div className={styles.contentWrapper}>
         <h3 className={styles.title}>{title}</h3>
-        <span className={styles.level}>level: {level}</span>
+        <span className={styles.level}>{subtitle || `ID: ${id}`}</span>
       </div>
     </button>
   );

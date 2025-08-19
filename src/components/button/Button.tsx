@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 
 type ButtonProps = {
   text: string;
@@ -17,5 +17,6 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, type = 'button', icon, c
     </button>
   );
 };
+
 
 export default Button;

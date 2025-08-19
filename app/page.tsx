@@ -1,9 +1,9 @@
 import styles from "./page.module.css";
+import Button from "@/src/components/button/Button";
 
 export default function Home() {
   return (
     <main className="bg-black text-white">
-      {/* Hero Section */}
       <section
         className="relative min-h-screen bg-no-repeat bg-cover bg-center flex flex-col justify-center items-center"
         style={{ backgroundImage: 'url("/images/home-page/s1-bg.svg")' }}
@@ -11,11 +11,9 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#0B1120] backdrop-blur-md"></div>
       </section>
 
-      {/* ABOUT US Section */}
       <section className="aboutUs relative bg-[#0B1120] py-[120px] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-[80px]">
           
-          {/* Text Side */}
           <div className="flex-1">
             <h2 className={`text-6xl font-extrabold ${styles.aboutTitle}`}>
               ABOUT US
@@ -31,12 +29,9 @@ export default function Home() {
               <p className="flex justify-end">WE BUILD ROCKETS AND INTRODUCE</p>
             </div>
 
-            <button className={styles.aboutButton}>
-              SIGN UP
-            </button>
+            <Button text="SIGN UP" className={styles.aboutButton} />
           </div>
 
-          {/* Image Side */}
           <div className="flex-1 flex justify-center">
             <img
               src="/images/home-page/tablet.svg"
@@ -46,7 +41,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Background Decorative Image */}
         <img
           src="/images/home-page/aboutUs-bg.svg"
           className="absolute top-0 left-0 opacity-20 pointer-events-none"

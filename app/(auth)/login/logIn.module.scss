@@ -1,6 +1,108 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+$primary: #00e3ff;
+$dark-bg: #07152a;
+$dark-bg2: #022533;
+$grey: #adbecc;
+
+.loginContainer {
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(to bottom, $dark-bg, $dark-bg2);
 }
 
+.loginBg {
+  position: absolute;
+  inset: 0;
+  background: url("/images/signup-bg.jpg") no-repeat center/cover;
+  opacity: 0.2;
+}
+
+.loginForm {
+  position: relative;
+  z-index: 10;
+  background: rgba($dark-bg, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($primary, 0.5);
+  color: $grey;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+}
+
+.loginTitle {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  background: rgba(2, 64, 97, 0.1);
+  border: 1px solid rgba($primary, 0.5);
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+
+  input {
+    background: transparent;
+    border: none;
+    outline: none;
+    flex: 1;
+    color: white;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: $grey;
+    }
+  }
+}
+
+.iconClick {
+  cursor: pointer;
+}
+
+.loginOptions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.loginBtn {
+  width: 100%;
+  background: rgba($primary, 0.5);
+  border: none;
+  padding: 0.75rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: rgba($primary, 0.3);
+  }
+}
+.error {
+  color: #ff4d4f;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
