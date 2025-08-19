@@ -59,7 +59,6 @@ export const Mission = ({ activeMission, setGameLink, setIsGameOpen }: IMissionP
 
   return (
     <div className="custom-scroll relative flex h-full w-full flex-col gap-[20px] overflow-auto p-[20px_0]">
-      {/* Video and Game Section */}
       <div className="flex gap-[10px]">
         <div className="relative h-[200px] w-[50%] rounded-[20px] bg-[url('/images/profile/mission/video_bg.webp')] bg-cover bg-center">
           {activeMission?.videoLink && (
@@ -94,7 +93,6 @@ export const Mission = ({ activeMission, setGameLink, setIsGameOpen }: IMissionP
         </div>
       </div>
 
-      {/* Title + Facts */}
       <h2 className={`${styles.title} flex items-center justify-center text-[48px] font-bold lowercase`}>
         Facts
       </h2>
@@ -123,7 +121,6 @@ export const Mission = ({ activeMission, setGameLink, setIsGameOpen }: IMissionP
         </ul>
       </div>
 
-      {/* Back Button */}
       <button
         type="button"
         onClick={() => router.push('/profile?activeTab=mission')}

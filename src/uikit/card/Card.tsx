@@ -8,27 +8,10 @@ import LockIcon from '@/public/images/profile/mission/svg/lock.svg';
 interface ICardProps {
   image: ElementType;
   title: string;
-  id: number | string;               
-  status: boolean;
-<<<<<<< HEAD
-  gameLink: string;
-  onClick: (value: boolean) => void;
-  setActiveMission: (level: number) => void;
-}
-
-export const Card = ({ image, title, level, status, setActiveMission }: ICartProps) => {
-  const Icon = image;
-
-  return (
-    <button
-      type="button"
-      className={cn(styles.btn, { [styles.activeBtn]: status })}
-      onClick={() => {
-        setActiveMission(level);
-      }}
-=======
-  subtitle?: string;                 
-  onClick: () => void;              
+  id: number | string;       // identifier for the mission/card
+  status: boolean;           // whether it’s active/unlocked
+  subtitle?: string;         // optional label (e.g., "Level 3")
+  onClick: () => void;       // action handler
 }
 
 export const Card = ({
@@ -42,9 +25,8 @@ export const Card = ({
   return (
     <button
       type="button"
-      className={styles.btn}
+      className={cn(styles.btn, { [styles.activeBtn]: status })}
       onClick={onClick}
->>>>>>> 11666669 (Changed header, cards and pagge file)
       disabled={!status}
     >
       <div className={cn(styles.imgWapper, { [styles.activeImgWrapper]: status })}>

@@ -1,7 +1,8 @@
 import styles from './Missions.module.scss';
 import { IMissionData, missionData } from '../../utils/missionData';
 import { Card } from '@/src/uikit/card/Card';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { Mission } from '../mission/Mission';
 
 interface IMissionProps {
@@ -10,44 +11,36 @@ interface IMissionProps {
 }
 
 const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
-<<<<<<< HEAD
   const [activeMission, setActiveMission] = useState<IMissionData | null>(null);
 
-  const serchParams = useSearchParams();
+  const searchParams = useSearchParams();
   const router = useRouter();
-  const mission = serchParams.get('missionId');
+  const mission = searchParams.get('missionId');
 
-  const sortedMissions = [...missionData].sort((a, b) => {
-    return a.id - b.id;
-  });
+  const sortedMissions = [...missionData].sort((a, b) => a.id - b.id);
 
-  const handleActiveMision = useCallback(
+  const handleActiveMission = useCallback(
     (value: number) => {
       const mission = sortedMissions.find((item) => item.id === value);
       if (mission) {
         setActiveMission(mission);
         router.push(`/profile?activeTab=mission&missionId=${value}`);
       }
-      return;
     },
-    [router]
+    [router, sortedMissions]
   );
 
   useEffect(() => {
     if (mission) {
-      handleActiveMision(Number(mission));
+      handleActiveMission(Number(mission));
     } else {
       setActiveMission(null);
     }
-  }, [mission, handleActiveMision]);
-=======
-  // Store the whole mission object instead of just the level number
-  const [activeTest, setActiveTest] = useState<IMissionData | null>(null);
->>>>>>> 11666669 (Changed header, cards and pagge file)
+  }, [mission, handleActiveMission]);
 
   return (
-    <div className={styles.contenWrapper}>
-      {activeTest === null ? (
+    <div className={styles.contentWrapper}>
+      {activeMission === null ? (
         <>
           <div className={styles.titleWrapper}>
             <h2 className={styles.title}>Missions</h2>
@@ -56,19 +49,13 @@ const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
             {sortedMissions.map((item) => (
               <li key={item.id} className={styles.tabletItem}>
                 <Card
-<<<<<<< HEAD
-                  gameLink={item.gameLink}
-                  onClick={() => setIsGameOpen(true)}
-                  status={item.isAtive}
-=======
->>>>>>> 11666669 (Changed header, cards and pagge file)
                   image={item.icon}
                   title={item.title}
                   status={item.isAtive}
                   id={item.level}
                   subtitle={`Level ${item.level}`}
                   onClick={() => {
-                    setActiveTest(item); // store full mission object
+                    setActiveMission(item);
                     setIsGameOpen(true);
                     setGameLink(item.gameLink);
                   }}
@@ -77,15 +64,13 @@ const Missions = ({ setIsGameOpen, setGameLink }: IMissionProps) => {
             ))}
           </ul>
         </>
-<<<<<<< HEAD
-      ) : activeMission ? (
-        <Mission setIsGameOpen={setIsGameOpen} setGameLink={setGameLink} />
-      ) : null}
-=======
       ) : (
-        <Mission activeMission={activeTest} />
+        <Mission
+          activeMission={activeMission}
+          setIsGameOpen={setIsGameOpen}
+          setGameLink={setGameLink}
+        />
       )}
->>>>>>> 11666669 (Changed header, cards and pagge file)
     </div>
   );
 };

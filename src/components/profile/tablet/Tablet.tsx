@@ -9,7 +9,7 @@ import { tabletButtons } from './tabletButtons/tabletButtons';
 import { Book } from './book/Book';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Tests from '../tests/Tests';
-import Leaderboard from '../leaderboard/Leaderboard';
+import Leaderboard from '../leaderboard/leaderboard';
 import Missions from '../missions/Missions';
 import CloseBtn from '@/public/images/svg/closeBtn.svg';
 import { Skin } from '../../skin/Skin';

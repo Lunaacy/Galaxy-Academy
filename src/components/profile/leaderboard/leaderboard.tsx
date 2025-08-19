@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Leaderboard.module.scss";
+import styles from "./leaderboard.module.scss";
 
 interface Player {
   rank: number;

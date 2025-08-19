@@ -26,7 +26,6 @@ const Header = () => {
   return (
     <header className={styles.custom}>
       <nav className={styles.navContent}>
-        {/* Left logos */}
         <div className="flex items-center justify-between gap-10">
           <Link href="/">
             <Logo className="h-[30px] w-auto" />
@@ -36,7 +35,6 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Middle nav */}
         <ul className={styles.navLinks}>
           <li>
             <Link
